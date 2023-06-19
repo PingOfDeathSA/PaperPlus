@@ -667,7 +667,9 @@ function performFunctionOnMondayMorning() {
                     const emailContent = [];
           
                     for (const interest of interests) {
-                      const url = `${base_url}queryText=${interest.searchQueryName}&highlight=true&returnType=SEARCH&matchPubs=true&rowsPerPage=${interest.searchPageRange}&refinements=ContentType:${interest.ContentType}&ranges=${interest.Ranges}&returnFacets=ALL&sortType=${interest.sortType}`;
+                  
+                      const url = ` ${base_url}queryText=${interest.searchQueryName}&highlight=true&returnType=SEARCH&matchPubs=true&rowsPerPage=${interest.searchPageRange}&refinements=ContentType:${interest.ContentType}&refinements=ContentType:Journals&ranges=${interest.Ranges}&returnFacets=ALL&sortType=${interest.sortType}`
+
           await driver.get(url);
           await driver.wait(until.elementLocated(By.className('List-results-items')), 10000);
           const listAll = await driver.findElements(By.className('List-results-items'));

@@ -212,13 +212,13 @@ router.post("/", function (req, res) {
 
   req.logIn(user, function (err) {
     if (err) {
-      console.log(err);
+
       return res.status(500).send("Internal Server Error");
     }
 
     passport.authenticate("local", function (err, user, info) {
       if (err) {
-        console.log(err);
+        
         return res.status(500).send("Internal Server Error");
       }
 
@@ -230,7 +230,7 @@ router.post("/", function (req, res) {
 
       UserInterestsModel.find({ user: userName }, function (err, usersInterest) {
         if (err) {
-          console.log(err);
+         
           return res.status(500).send("Internal Server Error");
         }
 

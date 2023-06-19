@@ -219,7 +219,7 @@ router.post("/", function (req, res) {
     passport.authenticate("local", function (err, user, info) {
       if (err) {
         
-        return res.status(500).send("Internal Server Error");
+        return res.render('errorlogin');
       }
 
       if (!user) {

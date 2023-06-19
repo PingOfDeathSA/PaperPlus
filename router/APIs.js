@@ -209,27 +209,39 @@ router.post("/", function (req, res) {
     username: req.body.username,
     password: req.body.password,
   });
+
   req.logIn(user, function (err) {
-    const userName = req.user.username;
     if (err) {
       console.log(err);
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        UserInterestsModel.find({ user: userName }, function (err, usersInterest) {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render("mail", {
-              userInterests: usersInterest,
-            });
-          }
+      return res.status(500).send("Internal Server Error");
+    }
+
+    passport.authenticate("local", function (err, user, info) {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("Internal Server Error");
+      }
+
+      if (!user) {
+        return res.status(400).send("User not found. Please register a new account.");
+      }
+
+      const userName = user.username;
+
+      UserInterestsModel.find({ user: userName }, function (err, usersInterest) {
+        if (err) {
+          console.log(err);
+          return res.status(500).send("Internal Server Error");
+        }
+
+        res.render("mail", {
+          userInterests: usersInterest,
         });
       });
-    }
+    })(req, res);
   });
-}, function (req, res) {
-  res.status(400).send("User not found. Please register a new account.");
 });
+
 
 router.get('/welcome.html', (req, res) => {
 

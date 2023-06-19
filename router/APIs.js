@@ -213,7 +213,7 @@ router.post("/", function (req, res) {
   req.logIn(user, function (err) {
     if (err) {
 
-      return res.status(500).send("Internal Server Error");
+      return res.render('errorlogin');
     }
 
     passport.authenticate("local", function (err, user, info) {
@@ -223,7 +223,7 @@ router.post("/", function (req, res) {
       }
 
       if (!user) {
-        return res.status(400).send("User not found. Please register a new account.");
+        return res.render('errorlogin');
       }
 
       const userName = user.username;
@@ -231,7 +231,7 @@ router.post("/", function (req, res) {
       UserInterestsModel.find({ user: userName }, function (err, usersInterest) {
         if (err) {
          
-          return res.status(500).send("Internal Server Error");
+          return res.render('errorlogin');
         }
 
         res.render("mail", {
@@ -588,7 +588,7 @@ router.post("/Resetpassword.html", function (req, res) {
         });
       } else {
         // Username and token do not match in the TokenModel
-        res.status(401).send("Invalid token. Please check your credentials.");
+        res.render('invalidtoken');
       }
     }
   });

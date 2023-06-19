@@ -1,0 +1,59 @@
+<div class="form-group">
+    <h5>Option 1</h5>
+    <h6 class="upload-options"> Research Paper</h6>
+    <select class="form-control" id="researchPapers1" name="researchPapers1">
+       <!-- Function to get user iterest details-->
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest1.searchQueryName %>">
+          <%= item.interest1.searchQueryName %>
+        </option>
+        <% }); %>
+        <!-- calling option list page -->
+          <%- include("optionlist.ejs") -%>
+    </select>
+    <h6 class="upload-options">Content Range</h6>
+    <select class="form-control" id="searchPageRange1" name="searchPageRange1">
+       <!-- Function to get user iterest details-->
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest1.searchPageRange %>">
+          <%= item.interest1.searchPageRange %>
+        </option>
+        <% }); %>
+          <!-- calling paper range page -->
+          <%- include("paperRange.ejs") -%>
+    </select>
+    <h6 class="upload-options">Content Type</h6>
+
+    <select class="form-control" id="contenttype1" name="contenttype1">
+             <!-- Function to get user iterest details-->
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest1.ContentType %>">
+          <%= item.interest1.ContentType %>
+        </option>
+        <% }); %>
+            <!-- calling paper Content Type page -->
+          <%- include("ContentypeList.ejs") -%>
+    </select>
+    <h6 class="upload-options">Sort By</h6>
+    <select class="form-control" id="sortType1" name="sortType1">
+             <!-- Function to get user iterest details-->
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest1.sortType %>">
+          <%= item.interest1.sortType %>
+        </option>
+        <% }); %>
+              <!-- calling Sort By page-->
+          <%- include("sortbyList.ejs") -%>
+    </select>
+    <h6 class="upload-options">Start Date Filter</h6>
+           <!-- Function to get user iterest details-->
+    <select class="form-control" id="fromyear1" name="fromyear1">
+       <!-- calling date from page-->
+      <%- include("fromDateList.ejs") -%>
+    </select>
+    <h6 class="upload-options">End Date Filter</h6>
+    <!-- calling date to page-->
+    <select class="form-control" id="toyear1" name="toyear1">
+      <%- include("todateList.ejs") -%>
+    </select>
+  </div>

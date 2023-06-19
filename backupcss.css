@@ -1,0 +1,49 @@
+.squish {
+    animation: squish 5s ease-in infinite;
+    animation-delay: 4.6s; /* Add delay to create staggered effect */
+  }
+  @keyframes squish {
+    0% {
+      opacity: 1; /* Change opacity to fade in */
+      transform: scale(1, 1) translateY(0); /* Add translateY for jumping effect */
+    }
+    5% {
+      transform: scale(1.2, 0.9) translateY(0); /* Add translateY for jumping effect */
+    }
+    10% {
+      transform: scale(0.9, 1.2) translateY(-0px); /* Add translateY for jumping effect */
+    }
+    15% {
+      transform: scale(1, 1) translateY(0); /* Add translateY for jumping effect */
+    }
+    20% {
+      opacity: 0; /* Change opacity to fade out */
+      transform: scale(1, 1) translateY(0); /* Add translateY for jumping effect */
+    }
+    100% {
+      opacity: 0; /* Change opacity to fade out */
+      transform: scale(1, 1) translateY(0); /* Add translateY for jumping effect */
+    }
+  }
+    
+  .steady {
+    z-index: 9999;
+    animation: steady 4.0s infinite;
+    animation-delay: 2.2s; /* Add delay to create staggered effect */
+  }
+  
+  @keyframes steady {
+    0% {
+      opacity: 1; /* Change opacity to fade in */
+      transform: scale(1, 1) translateY(0); /* Add translateY for jumping effect */
+    }
+    75% {
+      transform: scale(0.95, 1.05) translateY(-50px); /* Add translateY for jumping effect */
+    }
+    76% {
+      transform: scale(0.95, 1.05) translateY(-0px); /* Add translateY for jumping effect */
+    }
+    100% {
+      transform: scale(1, 1) translateY(0); /* Add translateY for jumping effect */
+    }
+  }

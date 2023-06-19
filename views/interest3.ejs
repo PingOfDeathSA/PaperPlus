@@ -1,0 +1,33 @@
+<h4 style="margin-bottom: 40px;">Option 3</h4>
+<div class="form-group ">
+    <h6> Research Paper</h6>
+  <select class="form-control" id="researchPapers3" name="researchPapers3">
+        <!-- calling list of options page -->
+      <%- include("optionlist.ejs") -%>
+  </select>
+  <h6>Content Type</h6>
+  <select class="form-control" id="contenttype3" name="contenttype3">
+           <!-- calling list of Content Type page-->
+    <%- include("ContentypeList.ejs") -%>
+</select>
+<h6>Sort By</h6>
+  <select class="form-control" id="sortType3" name="sortType3">
+               <!-- calling Sort By list page-->
+    <%- include("sortbyList.ejs") -%>
+</select>
+<h6>Content Range</h6>
+<select class="form-control" id="searchPageRange3" name="searchPageRange3">
+                 <!-- calling a list of Parper range otions page -->
+    <%- include("paperRange.ejs") -%>
+</select>
+<h6>Start Date Filter</h6>
+<select class="form-control" id="fromyear3" name="fromyear3">
+             <!-- calling a list of Dates page-->
+    <%- include("fromDateList.ejs") -%>
+</select>
+<h6>End Date Filter</h6>
+<select class="form-control" id="toyear3" name="toyear3">
+      <!-- calling a list of Dates page-->
+    <%- include("todateList.ejs") -%>
+</select>
+</div>

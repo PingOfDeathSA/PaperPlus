@@ -1,0 +1,6 @@
+
+<option value="<%= new Date().getFullYear() %>" class="dropdown"><%= new Date().getFullYear() %>
+    <% for (var year = new Date().getFullYear(); year >= 1885; year--) { %>
+        <option value="<%= year %>"><%= year %></option>
+    <% } %>
+</option>

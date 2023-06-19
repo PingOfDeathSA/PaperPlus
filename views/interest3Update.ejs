@@ -1,0 +1,49 @@
+<div class="form-group">
+    <h5>Option 3</h5>
+    <h6 class="upload-options">Research Paper</h6>
+    <select class="form-control" id="researchPapers3" name="researchPapers3">
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest3.searchQueryName %>">
+          <%= item.interest3.searchQueryName %>
+        </option>
+        <% }); %>
+          <%- include("optionlist.ejs") -%>
+    </select>
+    <h6 class="upload-options">Content Range</h6>
+    <select class="form-control" id="searchPageRange3" name="searchPageRange3">
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest3.searchPageRange %>">
+          <%= item.interest3.searchPageRange %>
+        </option>
+        <% }); %>
+          <%- include("paperRange.ejs") -%>
+    </select>
+    <h6 class="upload-options">Content Type</h6>
+    <select class="form-control" id="contenttype3" name="contenttype3">
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest3.ContentType %>">
+          <%= item.interest3.ContentType %>
+        </option>
+        <% }); %>
+          <%- include("ContentypeList.ejs") -%>
+    </select>
+
+    <h6 class="upload-options">Sort By</h6>
+    <select class="form-control" id="sortType3" name="sortType3">
+      <% userInterests.forEach(function(item) { %>
+        <option value="<%= item.interest3.sortType %>">
+          <%= item.interest3.sortType %>
+        </option>
+        <% }); %>
+          <%- include("sortbyList.ejs") -%>
+    </select>
+    <h6 class="upload-options">Start Date Filter</h6>
+    <select class="form-control" id="fromyear3" name="fromyear3">
+      <%- include("fromDateList.ejs") -%>
+    </select>
+    <h6 class="upload-options">End Date Filter</h6>
+ 
+    <select class="form-control" id="toyear3" name="toyear3">
+      <%- include("todateList.ejs") -%>
+    </select>
+  </div>

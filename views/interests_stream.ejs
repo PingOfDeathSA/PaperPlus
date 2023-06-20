@@ -1,3 +1,6 @@
+
+<!--  A  list of research papers and their image names, with  this i can check the currect research paper if it's in the list then use its key value to stream an image localy-->
+
 <% const imagesConverter = {
   'Agriculture': 'Agriculture.jpg',
   'Anthropology': 'anthropology.jpg',
@@ -77,6 +80,7 @@
 
 
 
+<!-- fuction to stream interests from backend -->
 <% userInterests.forEach(function(item) { %>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -93,6 +97,8 @@
 
           </div>
           <% if (imagesConverter.hasOwnProperty(item.interest1.searchQueryName)) { %>
+                                  <!-- Check if the search query name exists as a property in the imagesConverter object -->
+            <!-- If it does, print the value of the property and use it as the image source -->
             <img class="Image" src="<%= imagesConverter[item.interest1.searchQueryName] %>" alt="">
           <% } %>
         </div>
@@ -107,6 +113,8 @@
             <h5 class="discription2"><%= item.interest2.Ranges.replace('_Year', ' ').replace('_',' to ') %></h5>
           </div>
           <% if (imagesConverter.hasOwnProperty(item.interest2.searchQueryName)) { %>
+             <!-- Check if the search query name exists as a property in the imagesConverter object -->
+            <!-- If it does, print the value of the property and use it as the image source -->
             <img class="Image" src="<%= imagesConverter[item.interest2.searchQueryName] %>" alt="">
           <% } %>
         </div>
@@ -121,7 +129,10 @@
             <h5 class="discription">Range:</h5>
             <h5 class="discription2"><%= item.interest3.Ranges.replace('_Year', ' ').replace('_',' to ') %></h5>
           </div>
+          
           <% if (imagesConverter.hasOwnProperty(item.interest3.searchQueryName)) { %>
+            <!-- Check if the search query name exists as a property in the imagesConverter object -->
+            <!-- If it does, print the value of the property and use it as the image source -->
             <img class="Image" src="<%= imagesConverter[item.interest3.searchQueryName] %>" alt="">
           <% } %>
         </div>

@@ -561,7 +561,7 @@ router.post("/forgotpassword.html", function (req, res) {
     });
   }
       } else {
-        res.render('errorlogin')
+        res.render('tokenrror')
       }
     }
   });

@@ -10,7 +10,9 @@ const LocalStrategy = require('passport-local').Strategy; // Passport.js strateg
 const router = express.Router()
 const { Builder, By, Key, until } = require('selenium-webdriver'); // WebDriver for automating web browsers
 const nodemailer = require('nodemailer'); // Module for sending emails
+const DBConnection = require('./tempConnection')
 require('chromedriver'); // WebDriver for Chrome browser
+
 
 mongoose.set('strictQuery', true); // Enable strict query mode
 
@@ -33,7 +35,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect('mongodb+srv://PingOfDeathSA:Ronald438@cluster0.kqlfkdc.mongodb.net/PaperPlusDB');
+  mongoose.connect(DBConnection);
 
 
 // User Schema

@@ -1,3 +1,24 @@
+#To Run the Project
+
+Step 1. Download the Zip file.
+
+Step 2. If you don't have Node.js, download and install Node.js from this link: https://nodejs.org/en.
+
+Step 3 .If you don't have Nodemon, install Nodemon by running the following command in your command terminal:
+npm install -g nodemon
+
+Step 4. Once you have installed Node.js and Nodemon, navigate to the PaperPlus repository in your command terminal using the cd command.
+
+Step 5. Run the command nodemon app.js to start the server.
+
+Step 6. The server will run on port 5000.
+
+Step 7. Open your browser and type in localhost:5000.
+
+Step 8. The application will be live on port 5000.
+
+Thanks!
+
 "# PaperPlus" 
 
 I'm excited to have you here and eager to share how you can contribute to my GitHub project. There are several ways you can add value and make a meaningful impact:

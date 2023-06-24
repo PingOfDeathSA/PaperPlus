@@ -63,3 +63,4 @@ mongoose.tgz
 mongoose-*.tgz
 
 examples/ecommerce-netlify-functions/.netlify/state.json
+.vercel

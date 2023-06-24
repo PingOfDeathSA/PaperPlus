@@ -184,14 +184,23 @@
       .Top-z-index2{
         margin-left: 5px;
         z-index: 3;
+
      color: red;
         position: absolute;
         display: block;
-        top:100px;
+        top:195px;
         left: 0px;
       }
+      .notice2{
+        font-size: 0px
+      }
       .notice{
-        font-size: 0px;
+
+        margin: 0;
+        font-family: Arial, sans-serif;
+       color: black;
+        padding: 0;
+        font-size: 12px;
       }
       .block{
         padding-left: 60%;
@@ -409,8 +418,8 @@
             return nextMonday.toDateString();
           }
           %>
-          <h2 class="notice">Weekly Research Papers From IEEE</h2> 
-         <p class="notice">The next date to receive Research Papers is</p>  <span class="badge badge-pill badge-danger"><%= getNextMonday() %></span>
+          <h2 class="notice2">Weekly Research Papers From IEEE</h2> 
+         <p class="notice">The next date to receive Research Papers</p>  <span class="badge badge-pill badge-danger"><%= getNextMonday() %></span>
           
           
 

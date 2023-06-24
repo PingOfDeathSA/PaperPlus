@@ -35,7 +35,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-  mongoose.connect(DBConnection);
+mongoose.connect(DBConnection);
 
 
 // User Schema
@@ -126,13 +126,13 @@ router.post('/update-interests', (req, res) => {
     const FromDateQuery1 = req.body.fromyear1;
     const ToDate1 = req.body.toyear1;
 
- console.log('Selected research papers interest 1:', interest1);
- console.log('Selected research papers interest 1:', ContentTypeQuery1);
- console.log('Selected research papers interest 1:', PageRange1);
- console.log('Selected research papers interest 1:', sortbyQuery1);
- const FinalDateRage1 = FromDateQuery1+"_"+ ToDate1+"_Year"
- console.log(FinalDateRage1)
- // interest 1 data request End
+    console.log('Selected research papers interest 1:', interest1);
+    console.log('Selected research papers interest 1:', ContentTypeQuery1);
+    console.log('Selected research papers interest 1:', PageRange1);
+    console.log('Selected research papers interest 1:', sortbyQuery1);
+    const FinalDateRage1 = FromDateQuery1 + "_" + ToDate1 + "_Year"
+    console.log(FinalDateRage1)
+    // interest 1 data request End
 
 
     // interest 2 data request from front end  Start
@@ -144,11 +144,11 @@ router.post('/update-interests', (req, res) => {
     const ToDate2 = req.body.toyear2;
     console.log('Selected research papers interest 2:', interest2);
     console.log('Selected research papers interest 2:', ContentTypeQuery2);
- console.log('Selected research papers interest 2:', PageRange2);
- console.log('Selected research papers interest 2:', sortbyQuery2);
- const FinalDateRage2 = FromDateQuery2+"_"+ ToDate2+"_Year"
- console.log(FinalDateRage2)
-  // interest 2 data End
+    console.log('Selected research papers interest 2:', PageRange2);
+    console.log('Selected research papers interest 2:', sortbyQuery2);
+    const FinalDateRage2 = FromDateQuery2 + "_" + ToDate2 + "_Year"
+    console.log(FinalDateRage2)
+    // interest 2 data End
 
 
     // interest 3 data request from front end  Start
@@ -161,28 +161,28 @@ router.post('/update-interests', (req, res) => {
     console.log('Selected research papers interest 3:', interest3);
     console.log('Selected research papers interest 3:', ContentTypeQuery3);
     console.log('Selected research papers interest 3:', PageRange3);
- console.log('Selected research papers interest 3:', sortbyQuery3);
- const FinalDateRage3 = FromDateQuery3+"_"+ ToDate3+"_Year"
- console.log(FinalDateRage3)
-     // interest 3 data End
+    console.log('Selected research papers interest 3:', sortbyQuery3);
+    const FinalDateRage3 = FromDateQuery3 + "_" + ToDate3 + "_Year"
+    console.log(FinalDateRage3)
+    // interest 3 data End
 
     // Update the interests in the database
     UserInterestsModel.findOneAndUpdate(
       { user: user },
-      { 
+      {
         user: user,
         interest1: {
           searchQueryName: interest1,
           searchPageRange: PageRange1,
           ContentType: ContentTypeQuery1,
-          Ranges:  FinalDateRage1,
+          Ranges: FinalDateRage1,
           sortType: sortbyQuery1,
         },
         interest2: {
           searchQueryName: interest2,
           searchPageRange: PageRange2,
           ContentType: ContentTypeQuery2,
-          Ranges:  FinalDateRage2,
+          Ranges: FinalDateRage2,
           sortType: sortbyQuery2
         },
         interest3: {
@@ -230,13 +230,13 @@ router.post("/", function (req, res) {
 
   req.logIn(user, function (err) {
     if (err) {
-// handling error 
+      // handling error 
       return res.render('errorlogin');
     }
 
     passport.authenticate("local", function (err, user, info) {
       if (err) {
-        
+
         // handling error 
         return res.render('errorlogin');
       }
@@ -250,10 +250,10 @@ router.post("/", function (req, res) {
 
       UserInterestsModel.find({ user: userName }, function (err, usersInterest) {
         if (err) {
-         // handling error 
+          // handling error 
           return res.render('errorlogin');
         }
-// redering mail page for a success login
+        // redering mail page for a success login
         res.render("mail", {
           userInterests: usersInterest,
         });
@@ -266,7 +266,7 @@ router.post("/", function (req, res) {
 
 // welcome page
 router.get('/welcome.html', (req, res) => {
-// authenticating the user
+  // authenticating the user
   if (req.isAuthenticated()) {
     const user = req.user.username;
     // fetching the user info from mongoDB
@@ -275,7 +275,7 @@ router.get('/welcome.html', (req, res) => {
       if (err) {
         console.log(err)
       } else {
-// rendering welcome page
+        // rendering welcome page
         res.render("welcome", {
           user: userfound,
         });
@@ -293,12 +293,12 @@ router.get('/Dashboard.html', (req, res) => {
   // authenticating the user
   if (req.isAuthenticated()) {
     const user = req.user.username;
-        // fetching the user info from mongoDB
+    // fetching the user info from mongoDB
     UserModel.find({ email: user }, function (err, userfound) {
       if (err) {
         console.log(err)
       } else {
-            // fetching the user info from mongoDB
+        // fetching the user info from mongoDB
         UserInterestsModel.find({ user: user }, function (err, userInterest) {
 
           if (err) {
@@ -321,7 +321,7 @@ router.get('/Dashboard.html', (req, res) => {
 
 
 router.post("/welcomeUpade.html", function (req, res) {
-    // authenticating the user
+  // authenticating the user
   if (req.isAuthenticated()) {
 
     const user = req.user.username;
@@ -336,13 +336,13 @@ router.post("/welcomeUpade.html", function (req, res) {
     const FromDateQuery1 = req.body.fromyear1;
     const ToDate1 = req.body.toyear1;
 
- console.log('Selected research papers interest 1:', interest1);
- console.log('Selected research papers interest 1:', ContentTypeQuery1);
- console.log('Selected research papers interest 1:', PageRange1);
- console.log('Selected research papers interest 1:', sortbyQuery1);
- const FinalDateRage1 = FromDateQuery1+"_"+ ToDate1+"_Year"
- console.log(FinalDateRage1)
- // interest 1 data request End
+    console.log('Selected research papers interest 1:', interest1);
+    console.log('Selected research papers interest 1:', ContentTypeQuery1);
+    console.log('Selected research papers interest 1:', PageRange1);
+    console.log('Selected research papers interest 1:', sortbyQuery1);
+    const FinalDateRage1 = FromDateQuery1 + "_" + ToDate1 + "_Year"
+    console.log(FinalDateRage1)
+    // interest 1 data request End
 
 
     // interest 2 data Start
@@ -354,11 +354,11 @@ router.post("/welcomeUpade.html", function (req, res) {
     const ToDate2 = req.body.toyear2;
     console.log('Selected research papers interest 2:', interest2);
     console.log('Selected research papers interest 2:', ContentTypeQuery2);
- console.log('Selected research papers interest 2:', PageRange2);
- console.log('Selected research papers interest 2:', sortbyQuery2);
- const FinalDateRage2 = FromDateQuery2+"_"+ ToDate2+"_Year"
- console.log(FinalDateRage2)
-  // interest 2 data End
+    console.log('Selected research papers interest 2:', PageRange2);
+    console.log('Selected research papers interest 2:', sortbyQuery2);
+    const FinalDateRage2 = FromDateQuery2 + "_" + ToDate2 + "_Year"
+    console.log(FinalDateRage2)
+    // interest 2 data End
 
 
     // interest 3 data Start
@@ -371,10 +371,10 @@ router.post("/welcomeUpade.html", function (req, res) {
     console.log('Selected research papers interest 3:', interest3);
     console.log('Selected research papers interest 3:', ContentTypeQuery3);
     console.log('Selected research papers interest 3:', PageRange3);
- console.log('Selected research papers interest 3:', sortbyQuery3);
- const FinalDateRage3 = FromDateQuery3+"_"+ ToDate3+"_Year"
- console.log(FinalDateRage3)
-     // interest 3 data End
+    console.log('Selected research papers interest 3:', sortbyQuery3);
+    const FinalDateRage3 = FromDateQuery3 + "_" + ToDate3 + "_Year"
+    console.log(FinalDateRage3)
+    // interest 3 data End
     const userInterestsData = [
       {
         user: user,
@@ -382,14 +382,14 @@ router.post("/welcomeUpade.html", function (req, res) {
           searchQueryName: interest1,
           searchPageRange: PageRange1,
           ContentType: ContentTypeQuery1,
-          Ranges:  FinalDateRage1,
+          Ranges: FinalDateRage1,
           sortType: sortbyQuery1,
         },
         interest2: {
           searchQueryName: interest2,
           searchPageRange: PageRange2,
           ContentType: ContentTypeQuery2,
-          Ranges:  FinalDateRage2,
+          Ranges: FinalDateRage2,
           sortType: sortbyQuery2
         },
         interest3: {
@@ -424,11 +424,11 @@ router.post("/welcomeUpade.html", function (req, res) {
             });
         }
       })
-    .catch(err => {
-      console.error(err);
-      // Handle the error and send an appropriate response
-      res.status(500).send(`<div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 5px; margin-bottom: 20px;"><strong>Error:</strong> ${err}</div>`);
-    });
+      .catch(err => {
+        console.error(err);
+        // Handle the error and send an appropriate response
+        res.status(500).send(`<div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 5px; margin-bottom: 20px;"><strong>Error:</strong> ${err}</div>`);
+      });
   } else {
     res.redirect("/");
   }
@@ -456,14 +456,86 @@ router.post("/UseRegister.html", function (req, res) {
       if (foundUser) {
         // Username already exists
         console.log("Username already exists");
-        res.status(409).send("Username already exists");
+        res.render('UserAlreadyregistered')
       } else {
         // Username does not exist, proceed with registration
         UserModel.register({ username: username }, req.body.password, function (err, user) {
           if (err) {
-            console.log(err);
+
             res.redirect("/UseRegister.html");
           } else {
+            // sending new registered users a welcome email
+            console.log('sending email to new user')
+            const emailBody = `
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        margin-bottom: 20px;
+        font-size: 800;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: rgb(26, 25, 25);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to PaperPlus!</h1>
+    <p>
+      Dear ${username},
+    </p>
+    <p>
+    Thank you for joining PaperPlus! We're excited to have you as part of our research community. You will receive new research papers every Monday morning at 8:30 based on your interest choice. You can log in to the application at any time to configure your research paper interests.
+  </p>
+    <p>
+      To get started, please visit our website:
+      <a href="https://paperplus.onrender.com/" class="button">PaperPlus Website</a>
+    </p>
+    <p>
+      If you have any questions or need assistance, feel free to contact us at mailapi348@gmail.com.
+    </p>
+    <p>
+      Best regards,<br>
+      The PaperPlus Team
+    </p>
+  </body>
+</html>
+`;
+            const transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                user: 'mailapi348@gmail.com',
+                pass: 'lhhoqgnfyjfgpvvg'
+              }
+            });
+
+            const mailOptions = {
+              from: 'mailapi348@gmail.com',
+              to: username,
+              subject: 'Welcome to PaperPlus',
+              html: emailBody
+            };
+
+            transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                console.error(error);
+              } else {
+                console.log(`Email sent to ${username}`);
+              }
+            });
+
+
             passport.authenticate("local")(req, res, function () {
               res.redirect("/welcome.html");
             });
@@ -487,81 +559,81 @@ router.post("/forgotpassword.html", function (req, res) {
   UserModel.findOne({ username: username }, function (err, foundUser) {
     if (err) {
       console.log("error No user Found")
-   
+
     } else {
       if (foundUser) {
-       
-          // Check if the username already exists in the TokenModel
-  TokenModel.findOne({ user: username }, function (err, foundToken) {
-    if (err) {
-      res.render("User email not found");
-    } else {
-      if (foundToken) {
-        // User already has a token, delete the token
-        TokenModel.deleteOne({ user: username }, function (err) {
+
+        // Check if the username already exists in the TokenModel
+        TokenModel.findOne({ user: username }, function (err, foundToken) {
           if (err) {
-            console.error(err);
-            // Handle the error condition
+            res.render("User email not found");
           } else {
-            console.log("Previous token deleted");
-            // Proceed with generating and sending a new token
-            generateAndSendToken(username);
-          }
-        });
-      } else {
-        // User does not have a token, proceed with generating and sending a new token
-        generateAndSendToken(username);
-      }
-    }
-  });
-
-  function generateAndSendToken(username) {
-    // Generate a reset token
-    const tokenLength = 32;
-    const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let token = "";
-    for (let i = 0; i < tokenLength; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      token += characters.charAt(randomIndex);
-    }
-
-    // Save the token and user in the TokenModel
-    TokenModel.create({ token: token, user: username }, function (err, results) {
-      if (err) {
-        console.error(err);
-        // Handle the error condition
-      } else {
-        console.log("Token saved:", results);
-
-        // Send the token to the user
-        const transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: 'mailapi348@gmail.com',
-            pass: 'lhhoqgnfyjfgpvvg'
+            if (foundToken) {
+              // User already has a token, delete the token
+              TokenModel.deleteOne({ user: username }, function (err) {
+                if (err) {
+                  console.error(err);
+                  // Handle the error condition
+                } else {
+                  console.log("Previous token deleted");
+                  // Proceed with generating and sending a new token
+                  generateAndSendToken(username);
+                }
+              });
+            } else {
+              // User does not have a token, proceed with generating and sending a new token
+              generateAndSendToken(username);
+            }
           }
         });
 
-        const mailOptions = {
-          from: 'mailapi348@gmail.com',
-          to: username,
-          subject: 'Password Reset Instructions',
-          text: `Dear ${username},\n\nPlease use the following token to reset your password: ${token}`
-        };
-
-        transporter.sendMail(mailOptions, function (error, info) {
-          if (error) {
-            console.error(error);
-            // Handle the error condition
-          } else {
-            console.log(`Email sent to ${username}: ${info.response}`);
-            // Redirect or send a response indicating that the token has been sent
-            res.render("ResertPage");
+        function generateAndSendToken(username) {
+          // Generate a reset token
+          const tokenLength = 32;
+          const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+          let token = "";
+          for (let i = 0; i < tokenLength; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            token += characters.charAt(randomIndex);
           }
-        });
-      }
-    });
-  }
+
+          // Save the token and user in the TokenModel
+          TokenModel.create({ token: token, user: username }, function (err, results) {
+            if (err) {
+              console.error(err);
+              // Handle the error condition
+            } else {
+              console.log("Token saved:", results);
+
+              // Send the token to the user
+              const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                  user: 'mailapi348@gmail.com',
+                  pass: 'lhhoqgnfyjfgpvvg'
+                }
+              });
+
+              const mailOptions = {
+                from: 'mailapi348@gmail.com',
+                to: username,
+                subject: 'Password Reset Instructions',
+                text: `Dear ${username},\n\nPlease use the following token to reset your password: ${token}`
+              };
+
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.error(error);
+                  // Handle the error condition
+                } else {
+                  console.log(`Email sent to ${username}: ${info.response}`);
+                  // Redirect or send a response indicating that the token has been sent
+                  res.render("ResertPage");
+                }
+              });
+            }
+          });
+        }
       } else {
         res.render('tokenrror')
       }
@@ -648,9 +720,9 @@ function performFunctionOnMondayMorning() {
   const currentHour = currentDate.getHours();
   const currentMinute = currentDate.getMinutes();
 
-// if it's a Monday i continue with this function
+  // if it's a Monday i continue with this function
   if (currentDay === 1 && (currentHour > 8 || (currentHour === 8 && currentMinute >= 30))) {
-  //  getting all dates from automail_collection
+    //  getting all dates from automail_collection
     AutomailModel.find({}, function (err, datedata) {
       if (err) {
         console.log(err);
@@ -667,7 +739,7 @@ function performFunctionOnMondayMorning() {
             dateObj.day === currentDay
           );
         });
-  // checking if any dates matches the current date if true i log emails already sent 
+        // checking if any dates matches the current date if true i log emails already sent 
         if (matchedDates.length > 0) {
           console.log("Emails already sent.");
           matchedDates.forEach(dateObj => {
@@ -676,7 +748,7 @@ function performFunctionOnMondayMorning() {
         } else {
           console.log("Sending emails...");
 
-// getting all user interests from the DB
+          // getting all user interests from the DB
           UserInterestsModel.find({}, function (err, users) {
             if (err) {
               console.log(err);
@@ -691,55 +763,55 @@ function performFunctionOnMondayMorning() {
                 };
                 UserInterests.push(userInterests);
               });
-          
-          
+
+
               (async () => {
                 try {
                   // Create a new instance of the WebDriver using the 'chrome' browser
                   const driver = await new Builder().forBrowser('chrome').build();
                   //  Define the base URL for the IEEE Xplore search
                   const base_url = 'https://ieeexplore.ieee.org/search/searchresult.jsp?';
-           // Iterate over each user in the UserInterests array
+                  // Iterate over each user in the UserInterests array
                   for (const user of UserInterests) {
                     // Extract the user's interests from the database
                     const interests = [user.interest1, user.interest2, user.interest3];
-                     // Initialize an array to store email content
+                    // Initialize an array to store email content
                     const emailContent = [];
-           // Iterate over each interest of the user
+                    // Iterate over each interest of the user
                     for (const interest of interests) {
-                   // Construct the search URL based on the interest
+                      // Construct the search URL based on the interest
                       const url = ` ${base_url}queryText=${interest.searchQueryName}&highlight=true&returnType=SEARCH&matchPubs=true&rowsPerPage=${interest.searchPageRange}&refinements=ContentType:${interest.ContentType}&refinements=ContentType:Journals&ranges=${interest.Ranges}&returnFacets=ALL&sortType=${interest.sortType}`
 
-    // Load the URL in the WebDriver
-          await driver.get(url);
-          
-    // Wait for the search results to load
-          await driver.wait(until.elementLocated(By.className('List-results-items')), 10000);
-          // Find all the result items on the page
-          const listAll = await driver.findElements(By.className('List-results-items'));
-          // Check if there are any result items found
-          for (const item of listAll) {
-            const links = await item.findElements(By.tagName('a'));
-            const text = await item.getText();
-            const linkPromises = links.map(async (link) => await link.getAttribute('href'));
-            const link_1_Details = await Promise.all(linkPromises);
-            const link_2_Author = link_1_Details.slice(1, 2);
-        
-            const content = {
-              interest,
-              paper: text,
-              detailsLink: link_1_Details[0],
-              authorLink: link_2_Author[0]
-            };
-        
-            emailContent.push(content);
-          }
+                      // Load the URL in the WebDriver
+                      await driver.get(url);
+
+                      // Wait for the search results to load
+                      await driver.wait(until.elementLocated(By.className('List-results-items')), 10000);
+                      // Find all the result items on the page
+                      const listAll = await driver.findElements(By.className('List-results-items'));
+                      // Check if there are any result items found
+                      for (const item of listAll) {
+                        const links = await item.findElements(By.tagName('a'));
+                        const text = await item.getText();
+                        const linkPromises = links.map(async (link) => await link.getAttribute('href'));
+                        const link_1_Details = await Promise.all(linkPromises);
+                        const link_2_Author = link_1_Details.slice(1, 2);
+
+                        const content = {
+                          interest,
+                          paper: text,
+                          detailsLink: link_1_Details[0],
+                          authorLink: link_2_Author[0]
+                        };
+
+                        emailContent.push(content);
+                      }
                     }
-          
+
                     console.log(`Sending email to user: ${user.user}`);
                     console.log(`Interests: ${interests}`);
                     console.log(`Email Content: `, emailContent);
-          
+
                     // Generate email body content
                     let emailBody = `
                       <html>
@@ -802,7 +874,7 @@ function performFunctionOnMondayMorning() {
                             <h2>Hello ${user.user},</h2>
                             <p>Here are the latest papers matching your interests:</p>
           `;
-          
+
                     emailContent.forEach(content => {
                       emailBody += `
                             <div class="email-interest">
@@ -815,7 +887,7 @@ function performFunctionOnMondayMorning() {
                             </div>
                       `;
                     });
-          
+
                     emailBody += `
                           </div>
                           <div class="email-footer">
@@ -824,7 +896,7 @@ function performFunctionOnMondayMorning() {
                         </body>
                       </html>
                     `;
-          
+
                     // Send email to the user with their interests and results
                     const transporter = nodemailer.createTransport({
                       service: 'gmail',
@@ -833,14 +905,14 @@ function performFunctionOnMondayMorning() {
                         pass: 'lhhoqgnfyjfgpvvg'
                       }
                     });
-          
+
                     const mailOptions = {
                       from: 'mailapi348@gmail.com',
                       to: user.user,
                       subject: 'Your Interests and Results',
                       html: emailBody
                     };
-          
+
                     transporter.sendMail(mailOptions, (error, info) => {
                       if (error) {
                         console.error(error);
@@ -849,9 +921,9 @@ function performFunctionOnMondayMorning() {
                       }
                     });
                   }
-          
+
                   await driver.quit();
-          
+
                   // After sending emails to all users, add the date to the database
                   AutomailModel.create({ date: new Date() }, function (err, results) {
                     if (err) {
@@ -861,20 +933,20 @@ function performFunctionOnMondayMorning() {
                       console.log(results);
                     }
                   });
-          
+
                 } catch (error) {
                   console.error(error);
                 }
               })();
             }
           });
-          
+
         }
       }
     });
   } else {
-    console.log("It's not Monday morning, or the time is not yet 8:30 AM on Monday");
-  }
+    console.log("It's not Monday morning, or the time is not yet 8:30 AM on Monday. The application only sends emails to users with research papers once a week.");
+   }
 }
 
 // Call the function

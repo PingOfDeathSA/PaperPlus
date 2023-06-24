@@ -13,9 +13,11 @@ Step 5. Run the command nodemon app.js to start the server.
 
 Step 6. The server will run on port 5000.
 
-Step 7. Open your browser and type in localhost:5000.
+Step 7. Open your browser and paste this link http://localhost:5000.
 
 Step 8. The application will be live on port 5000.
+
+Step 9. Click on Register to register new account
 
 Thanks!
 

@@ -686,7 +686,7 @@ router.post("/Resetpassword.html", function (req, res) {
                         // Handle the error condition
                       } else {
                         console.log("Token deleted");
-                        res.redirect("'/Dashboard.html");
+                        res.redirect("/Dashboard.html");
                       }
                     });
                   });

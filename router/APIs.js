@@ -731,7 +731,7 @@ function performFunctionOnMondayMorning() {
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Note: Month starts from 0, so add 1 to get the correct month
         const currentDay = currentDate.getDate();
-
+ const formattedDate = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${currentDay.toString().padStart(2, '0')}`;
         const matchedDates = formattedDates.filter(dateObj => {
           return (
             dateObj.year === currentYear &&

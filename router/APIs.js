@@ -727,6 +727,19 @@ function performFunctionOnMondayMorning() {
       if (err) {
         console.log(err);
       } else {
+        const formattedDates = datedata.map(dateObj => {
+          const date = dateObj.date;
+          const year = date.getFullYear();
+          const month = date.getMonth() + 1; // Note: Month starts from 0, so add 1 to get the correct month
+          const day = date.getDate();
+
+          return {
+            year,
+            month,
+            day
+          };
+        });
+
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Note: Month starts from 0, so add 1 to get the correct month
@@ -739,7 +752,7 @@ function performFunctionOnMondayMorning() {
             dateObj.day === currentDay
           );
         });
-        // checking if any dates matches the current date if true i log emails already sent 
+
         if (matchedDates.length > 0) {
           console.log("Emails already sent.");
           matchedDates.forEach(dateObj => {

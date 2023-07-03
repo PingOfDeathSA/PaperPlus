@@ -686,7 +686,7 @@ router.post("/Resetpassword.html", function (req, res) {
                         // Handle the error condition
                       } else {
                         console.log("Token deleted");
-                        res.redirect("/Dashboard.html");
+                        res.redirect("'/Dashboard.html");
                       }
                     });
                   });
@@ -727,7 +727,6 @@ function performFunctionOnMondayMorning() {
       if (err) {
         console.log(err);
       } else {
-<<<<<<< HEAD
         const formattedDates = datedata.map(dateObj => {
           const date = dateObj.date;
           const year = date.getFullYear();
@@ -754,39 +753,6 @@ function performFunctionOnMondayMorning() {
           );
         });
 
-=======
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1; // Note: Month starts from 0, so add 1 to get the correct month
-const currentDay = currentDate.getDate();
-
-const formattedDates = datedata.map(dateObj => {
-  const date = dateObj.date;
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1; // Note: Month starts from 0, so add 1 to get the correct month
-  const day = date.getDate();
-
-  return {
-    year,
-    month,
-    day
-  };
-});
-
-const matchedDates = formattedDates.filter(dateObj => {
-  return (
-    dateObj.year === currentYear &&
-    dateObj.month === currentMonth &&
-    dateObj.day === currentDay
-  );
-});
-
-
-
-
-        
-        // checking if any dates matches the current date if true i log emails already sent 
->>>>>>> 7b6a50089afdf8f6acf4b555a2e99121cda8e8df
         if (matchedDates.length > 0) {
           console.log("Emails already sent.");
           matchedDates.forEach(dateObj => {
@@ -861,79 +827,79 @@ const matchedDates = formattedDates.filter(dateObj => {
 
        // Generate email body content
 let emailBody = `
-<html>
-  <head>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        padding:                           20px;
-      }
-    
-      .email-header {
-        border-radius: 10px;
-        background-color: #d82e03;
-        padding: 10px;
-        color: #fff;
-      }
-    
-      .email-content {
-        background-color: #fff;
-        padding: 20px;
-      }
-    
-      .email-interest {
-        margin-bottom: 20px;
-      }
-    
-      .email-interest-title {
-        font-weight: bold;
-        font-size: 16px;
-      }
-    
-      .email-paper {
-        margin-top: 10px;
-      }
-    
-      .email-paper-title {
-        font-weight: bold;
-      }
-    
-      .email-paper-link {
-        margin-top: 5px;
-      }
-    
-      .email-paper-link a {
-        color: #007bff;
-      }
-    
-      .email-footer {
-        background-color: #f5f5f5;
-        padding: 10px;
-        font-size: 12px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="email-header">
-      <h1>Weekly PaperPlus research papers</h1>
-    </div>
-    <div class="email-content">
-      <h2>Good Morning ${user.user},</h2>
-      <p>Here are the latest papers matching your interests:</p>
+  <html>
+    <head>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding:                           20px;
+        }
+      
+        .email-header {
+          border-radius: 10px;
+          background-color: #d82e03;
+          padding: 10px;
+          color: #fff;
+        }
+      
+        .email-content {
+          background-color: #fff;
+          padding: 20px;
+        }
+      
+        .email-interest {
+          margin-bottom: 20px;
+        }
+      
+        .email-interest-title {
+          font-weight: bold;
+          font-size: 16px;
+        }
+      
+        .email-paper {
+          margin-top: 10px;
+        }
+      
+        .email-paper-title {
+          font-weight: bold;
+        }
+      
+        .email-paper-link {
+          margin-top: 5px;
+        }
+      
+        .email-paper-link a {
+          color: #007bff;
+        }
+      
+        .email-footer {
+          background-color: #f5f5f5;
+          padding: 10px;
+          font-size: 12px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="email-header">
+        <h1>Weekly PaperPlus research papers</h1>
+      </div>
+      <div class="email-content">
+        <h2>Good Morning ${user.user},</h2>
+        <p>Here are the latest papers matching your interests:</p>
 `;
 
 emailContent.forEach(content => {
-emailBody += `
-      <div class="email-interest">
-        <h3 class="email-interest-title">${content.interest.searchQueryName}</h3>
-        <div class="email-paper">
-          <p class="email-paper-title">${content.paper}</p>
-          <p class="email-paper-link"><a href="${content.detailsLink}">View Details</a></p>
-          <p class="email-paper-link"><a href="${content.authorLink}">Author Information</a></p>
+  emailBody += `
+        <div class="email-interest">
+          <h3 class="email-interest-title">${content.interest.searchQueryName}</h3>
+          <div class="email-paper">
+            <p class="email-paper-title">${content.paper}</p>
+            <p class="email-paper-link"><a href="${content.detailsLink}">View Details</a></p>
+            <p class="email-paper-link"><a href="${content.authorLink}">Author Information</a></p>
+          </div>
         </div>
-      </div>
-`;
+  `;
 });
 
                     emailBody += `

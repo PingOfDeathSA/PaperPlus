@@ -825,81 +825,82 @@ function performFunctionOnMondayMorning() {
                     console.log(`Interests: ${interests}`);
                     console.log(`Email Content: `, emailContent);
 
-                    // Generate email body content
-                    let emailBody = `
-                      <html>
-                        <head>
-                          <style>
-                            body {
-                              font-family: Arial, sans-serif;
-                              background-color: #f5f5f5;
-                              padding:                           20px;
-                            }
-                          
-                            .email-header {
-                              background-color: #007bff;
-                              padding: 10px;
-                              color: #fff;
-                            }
-                          
-                            .email-content {
-                              background-color: #fff;
-                              padding: 20px;
-                            }
-                          
-                            .email-interest {
-                              margin-bottom: 20px;
-                            }
-                          
-                            .email-interest-title {
-                              font-weight: bold;
-                              font-size: 16px;
-                            }
-                          
-                            .email-paper {
-                              margin-top: 10px;
-                            }
-                          
-                            .email-paper-title {
-                              font-weight: bold;
-                            }
-                          
-                            .email-paper-link {
-                              margin-top: 5px;
-                            }
-                          
-                            .email-paper-link a {
-                              color: #007bff;
-                            }
-                          
-                            .email-footer {
-                              background-color: #f5f5f5;
-                              padding: 10px;
-                              font-size: 12px;
-                            }
-                          </style>
-                        </head>
-                        <body>
-                          <div class="email-header">
-                            <h1>Weekly Newsletter</h1>
-                          </div>
-                          <div class="email-content">
-                            <h2>Hello ${user.user},</h2>
-                            <p>Here are the latest papers matching your interests:</p>
-          `;
+       // Generate email body content
+let emailBody = `
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        padding:                           20px;
+      }
+    
+      .email-header {
+        border-radius: 10px;
+        background-color: #d82e03;
+        padding: 10px;
+        color: #fff;
+      }
+    
+      .email-content {
+        background-color: #fff;
+        padding: 20px;
+      }
+    
+      .email-interest {
+        margin-bottom: 20px;
+      }
+    
+      .email-interest-title {
+        font-weight: bold;
+        font-size: 16px;
+      }
+    
+      .email-paper {
+        margin-top: 10px;
+      }
+    
+      .email-paper-title {
+        font-weight: bold;
+      }
+    
+      .email-paper-link {
+        margin-top: 5px;
+      }
+    
+      .email-paper-link a {
+        color: #007bff;
+      }
+    
+      .email-footer {
+        background-color: #f5f5f5;
+        padding: 10px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-header">
+      <h1>Weekly PaperPlus research papers</h1>
+    </div>
+    <div class="email-content">
+      <h2>Good Morning ${user.user},</h2>
+      <p>Here are the latest papers matching your interests:</p>
+`;
 
-                    emailContent.forEach(content => {
-                      emailBody += `
-                            <div class="email-interest">
-                              <h3 class="email-interest-title">${content.interest.searchQueryName}</h3>
-                              <div class="email-paper">
-                                <p class="email-paper-title">${content.paper}</p>
-                                <p class="email-paper-link"><a href="${content.detailsLink}">View Details</a></p>
-                                <p class="email-paper-link"><a href="${content.authorLink}">Author Information</a></p>
-                              </div>
-                            </div>
-                      `;
-                    });
+emailContent.forEach(content => {
+emailBody += `
+      <div class="email-interest">
+        <h3 class="email-interest-title">${content.interest.searchQueryName}</h3>
+        <div class="email-paper">
+          <p class="email-paper-title">${content.paper}</p>
+          <p class="email-paper-link"><a href="${content.detailsLink}">View Details</a></p>
+          <p class="email-paper-link"><a href="${content.authorLink}">Author Information</a></p>
+        </div>
+      </div>
+`;
+});
 
                     emailBody += `
                           </div>

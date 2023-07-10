@@ -5,7 +5,7 @@ const mongoose = require("mongoose"); // MongoDB object modeling tool
 const session = require('express-session'); // Middleware for managing sessions
 const passport = require("passport"); // Authentication middleware for Node.js
 const passportLocalMongoose = require('passport-local-mongoose'); // Mongoose plugin for simplifying user authentication
-const MongoStore = require('connect-mongo')(session); // MongoDB session store for Express.js
+const MongoStore = require('connect-mongo'); // MongoDB session store for Express.js
 const LocalStrategy = require('passport-local').Strategy; // Passport.js strategy for authenticating with a username and password
 const router = express.Router()
 const { Builder, By, Key, until } = require('selenium-webdriver'); // WebDriver for automating web browsers
@@ -27,8 +27,8 @@ app.use(session({
   secret: 'THeTerminatorIsHere', // Secret key used to sign the session ID cookie
   resave: false, // Do not save the session if unmodified
   saveUninitialized: false, // Do not create a session until something is stored
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection, // Use the existing Mongoose connection
+  store: MongoStore.create({
+ mongoUrl: "mongodb+srv://PingOfDeathSA:Ronald438@cluster0.kqlfkdc.mongodb.net/PaperPlusDB",
     collectionName: 'sessions', // Collection name to store the sessions
     ttl: 60 * 60 // Session TTL (1 hour)
   })

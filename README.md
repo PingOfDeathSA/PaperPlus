@@ -12,16 +12,18 @@ Step 4. Once you have installed Node.js and Nodemon, navigate to the PaperPlus r
 
 Run
 =====================================
-   npm i selenium-webdriver
-Step 5. Run the command nodemon app.js to start the server.
 
-Step 6. The server will run on port 5000.
+Step 5. Run the command npm i selenium-webdriver.
 
-Step 7. Open your browser and paste this link http://localhost:5000.
+Step 6. Run the command nodemon app.js to start the server.
 
-Step 8. The application will be live on port 5000.
+Step 7. The server will run on port 5000.
 
-Step 9. Click on Register to register new account
+Step 8. Open your browser and paste this link http://localhost:5000.
+
+Step 9. The application will be live on port 5000.
+
+Step 10. Click on Register to register new account
 
 Thanks!
 =====================================

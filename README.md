@@ -9,8 +9,9 @@ Step 3 .If you don't have Nodemon, install Nodemon by running the following comm
 npm install -g nodemon
 
 Step 4. Once you have installed Node.js and Nodemon, navigate to the PaperPlus repository in your command terminal using the cd command.
-   Run
-   =====================================
+
+Run
+=====================================
    npm i selenium-webdriver
 Step 5. Run the command nodemon app.js to start the server.
 

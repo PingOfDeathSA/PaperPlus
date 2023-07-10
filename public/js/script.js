@@ -1,5 +1,6 @@
 
 
+
 const passwordInput = document.querySelector('#password');
 const password2Input = document.querySelector('#password2');
 

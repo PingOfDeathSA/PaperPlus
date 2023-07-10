@@ -144,52 +144,35 @@
         <div class="Form">
           <div class="Login">
             <div class="headerLogin">
-              <h6 class=""><span
-                  style="color:  rgb(206, 122, 163); font-size: 30px; display: inline-block;">Paper</span><span
-                  style="color: black; font-size: 30px; display: inline-block;">Plus</span> </h6>
-
+              <h6 class="">
+                <span style="color: rgb(206, 122, 163); font-size: 30px; display: inline-block;">Paper</span>
+                <span style="color: black; font-size: 30px; display: inline-block;">Plus</span>
+              </h6>
+        
               <div class="formDiv">
-                <form action="/UseRegister.html" method="POST">
+                <form action="/UseRegister.html" method="POST" onsubmit="return validateForm()">
                   <div class="form-group">
                     <div class="form-group">
                       <label for="email" class="inputs">Email</label>
                       <div class="row">
-                        <div class="col-1 col-md-1"><i
-                          class="fas fa-user fade-in-out"></i> </div>
-                        <div class="col-10 col-md-1o"><input type="email" class="form-control col-12" name="username" placeholder="username"></div>
+                        <div class="col-1 col-md-1"><i class="fas fa-user fade-in-out"></i></div>
+                        <div class="col-10 col-md-1o">
+                          <input type="email" class="form-control col-12" name="username" placeholder="username">
+                        </div>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="password" class="inputs">Create Password</label>
                       <div class="row">
-                        <div class="col-1 col-md-1"><i
-                          class="fas fa-lock fade-in-out"></i> </div>
-                        <div class="col-10 col-md-1o">
+                        <div class="col-1 col-md-1"><i class="fas fa-lock fade-in-out"></i></div>
+                        <div class="col-10 col-md-10">
                           <div class="input-group" style="border-radius: 10px;">
-                            <input type="password" class="form-control col-12" id="password" name="password" required
-                             >
-                            <div class="input-group-append" >
+                            <input type="password" class="form-control col-12" id="password" name="password" required>
+                            <div class="input-group-append">
                               <span class="input-group-text" id="password-toggle">
                                 <i class="fas fa-eye-slash"></i>
                               </span>
                             </div>
-                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                            <script>
-                              $(document).ready(function () {
-                                $('#password-toggle').click(function () {
-                                  var passwordInput = $('#password');
-                                  var icon = $(this).find('i');
-      
-                                  if (passwordInput.attr('type') === 'password') {
-                                    passwordInput.attr('type', 'text');
-                                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
-                                  } else {
-                                    passwordInput.attr('type', 'password');
-                                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
-                                  }
-                                });
-                              });
-                            </script>
                           </div>
                         </div>
                       </div>
@@ -197,24 +180,65 @@
                     <div class="form-group">
                       <label for="password2" class="inputs">Confirm Password</label>
                       <div class="row">
-                        <div class="col-1 col-md-1"><i
-                          class="fas fa-lock fade-in-out"></i></div>
-                        <div class="col-10 col-md-1o">
+                        <div class="col-1 col-md-1"><i class="fas fa-lock fade-in-out"></i></div>
+                        <div class="col-10 col-md-10">
                           <input type="password" class="form-control col-12" id="password2" required>
-                
+                          <span id="error-message" style="color: red; display: none;">Passwords do not match</span>
+                        </div>
                       </div>
                     </div>
+        
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                      $(document).ready(function () {
+                        $('#password-toggle').click(function () {
+                          var passwordInput = $('#password');
+                          var icon = $(this).find('i');
 
-
-                  
-                   
-                  </div>
-
-                 
-                 <button type="submit"
-                    style="margin-right: 10px;" class="btn btn-dark">Register</button>
+                          if (passwordInput.attr('type') === 'password') {
+                            passwordInput.attr('type', 'text');
+                            icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                          } else {
+                            passwordInput.attr('type', 'password');
+                            icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                          }
+                        });
+                      });
+                      $(document).ready(function() {
+                        $('#password2').on('input', function() {
+                          var password = $('#password').val();
+                          var password2 = $(this).val();
+                          
+                          if (password !== password2) {
+                            $('#error-message').show();
+                          } else {
+                            $('#error-message').hide();
+                          }
+                        });
+                      });
+        
+                      function validateForm() {
+                        var password = $('#password').val();
+                        var password2 = $('#password2').val();
+                        
+                        if (password !== password2) {
+                          $('#error-message').show();
+                          return false; // Prevent form submission
+                        } else {
+                          $('#error-message').hide();
+                          return true; // Allow form submission
+                        }
+                      }
+                    </script>
+        
+                    <button type="submit" style="margin-right: 10px;" class="btn btn-dark">Register</button>
                     <a href="/" class="btn btn-outline-dark">Login</a>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
               </div>
             </div>
           </div>
